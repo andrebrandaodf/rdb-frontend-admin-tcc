@@ -11,11 +11,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  // {
-  //   path: 'admin',
-  //   loadChildren: () =>
-  //     import('./components/admin/admin.module').then((m) => m.AdminModule),
-  // },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./components/admin/admin.module').then((m) => m.AdminModule),
+  },
   {
     path: '**',
     redirectTo: '',
