@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="mat-elevation-z2">
+    <mat-card class="novoDonor">
+      <mat-card-title class="title-matCard">Novo Evento</mat-card-title>
+      <form class="d-flex ng-untouched ng-pristine ng-valid">
+        <mat-form-field>
+          <input matInput placeholder="Nome" [(ngModel)]="donor.name" name="name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Sobrenome" [(ngModel)]="donor.surname" name="surname">
+        </mat-form-field>
+
+        <mat-card-title class="title-matCard">Endereço</mat-card-title>
+
+        <mat-form-field>
+          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="donor.address.cep" name="cep">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Logradouro" [(ngModel)]="donor.address.logradouro" name="logradouro">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Bairro" [(ngModel)]="donor.address.bairro" name="bairro">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cidade" [(ngModel)]="donor.address.localidade" name="localidade">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="UF" [(ngModel)]="donor.address.uf" name="uf">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Complemento" [(ngModel)]="donor.address.complemento" name="complemento">
+        </mat-form-field>
+
+        <mat-card-title class="title-matCard">Contatos</mat-card-title>
+        <mat-form-field>
+          <input matInput placeholder="Telefone" [(ngModel)]="donor.phone" name="phone">
+
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="donor.email" name="email">
+
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+  <button class="mb-2 btn" mat-raised-button (click)="createDonor()">
+    Salvar
+  </button>
+
+  <button class="mb-2 btn" mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</div>
