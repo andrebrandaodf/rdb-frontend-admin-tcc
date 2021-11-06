@@ -2,13 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { DonorService } from 'src/app/services/donor.service';
+import { ItemService } from 'src/app/services/item.service';
 
 
 @Component({
-  selector: 'app-donor-read',
-  templateUrl: './donor-read.component.html',
-  styleUrls: ['./donor-read.component.scss'],
+  selector: 'app-item-read',
+  templateUrl: './item-read.component.html',
+  styleUrls: ['./item-read.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -18,7 +18,7 @@ import { DonorService } from 'src/app/services/donor.service';
   ],
 })
 
-export class DonorReadComponent implements OnInit {
+export class ItemReadComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,12 +30,11 @@ export class DonorReadComponent implements OnInit {
 
   columnsToDisplay = [
     'name',
-    'surname',
-    'address',
+    'category',
     'action',
   ];
 
-  constructor(private donorService: DonorService) {
+  constructor(private itemService: ItemService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -58,7 +57,7 @@ export class DonorReadComponent implements OnInit {
 
   getAllPaginator() {
     this.isLoading = true;
-    this.donorService.getAll().subscribe((res: any) => {
+    this.itemService.getAll().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res || []);
       setTimeout(() => this.dataSource.paginator = this.paginator);
       this.isLoading = false;

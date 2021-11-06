@@ -1,56 +1,47 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Donor } from 'src/app/models/donor.model';
-import { DonorService } from 'src/app/services/donor.service';
+import { Item } from 'src/app/models/item.model';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
-  selector: 'app-donor-update',
-  templateUrl: './donor-update.component.html',
-  styleUrls: ['./donor-update.component.scss']
+  selector: 'app-item-update',
+  templateUrl: './item-update.component.html',
+  styleUrls: ['./item-update.component.scss']
 })
-export class DonorUpdateComponent implements OnInit {
+export class ItemUpdateComponent implements OnInit {
 
-  donor!: Donor;
+  item!: Item;
   private id?: number;
 
   constructor(
     private formBuilder: FormBuilder,
-    private donorService: DonorService,
+    private itemService: ItemService,
     private router: Router,
     private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(getParam => {
-      this.donorService.readById(getParam.id).subscribe((donor: any) => {
-        this.donor = donor;
+      this.itemService.readById(getParam.id).subscribe((item: any) => {
+        this.item = item;
       });
       this.id = getParam.id;
     }, erro => {
       console.log('Erro ao pegar ID', erro);
     });
   }
-  getCep(event: any) {
-    let cep = (event.target as HTMLInputElement).value;
-    let cepOnlyNumber = Number(cep.replace(/[^0-9]/g, ''));
-    this.donorService.getCep(cepOnlyNumber).subscribe((resp: any) => {
-      this.donor.address = resp;
-      console.log(resp);
-    }
-    );
-  }
 
-  updateDonor(): void {
-    console.log(this.donor);
-    this.donorService.update(this.donor).subscribe(() => {
-      this.donorService.showMessage('Doador atualizado com sucesso!')
-      this.router.navigate(['admin/donor']);
+  updateItem(): void {
+    console.log(this.item);
+    this.itemService.update(this.item).subscribe(() => {
+      this.itemService.showMessage('Item atualizado com sucesso!')
+      this.router.navigate(['admin/item']);
     })
   }
 
   cancel(): void {
-    this.router.navigate(['admin/donor']);
+    this.router.navigate(['admin/item']);
   }
 
 }

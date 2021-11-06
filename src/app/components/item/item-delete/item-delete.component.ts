@@ -1,30 +1,28 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Donor } from 'src/app/models/donor.model';
-import { DonorService } from 'src/app/services/donor.service';
-
-
+import { Item } from 'src/app/models/item.model';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
-  selector: 'app-donor-delete',
-  templateUrl: './donor-delete.component.html',
-  styleUrls: ['./donor-delete.component.scss']
+  selector: 'app-item-delete',
+  templateUrl: './item-delete.component.html',
+  styleUrls: ['./item-delete.component.scss']
 })
-export class DonorDeleteComponent implements OnInit {
+export class itemDeleteComponent implements OnInit {
 
-  donor!: Donor;
+  item!: Item;
   private id!: number;
 
   constructor(
-    private donorService: DonorService,
+    private itemService: ItemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(getParam => {
-      this.donorService.readById(getParam.id).subscribe((donor: any) => {
-        this.donor = donor;
+      this.itemService.readById(getParam.id).subscribe((item: any) => {
+        this.item = item;
       });
       this.id = getParam.id;
     }, erro => {
@@ -32,17 +30,17 @@ export class DonorDeleteComponent implements OnInit {
     });
   }
 
-  deleteDonor(): void {
-    this.donorService.delete(this.id).subscribe(() => {
-      this.donorService.showMessage('Doador deletado com sucesso!');
-      this.router.navigate(['admin/donor']);
+  deleteitem(): void {
+    this.itemService.delete(this.id).subscribe(() => {
+      this.itemService.showMessage('Item deletado com sucesso!');
+      this.router.navigate(['admin/item']);
     }, errow => {
-      this.donorService.showMessage(`Erro na solicitação: ${errow}`);
+      this.itemService.showMessage(`Erro na solicitação: ${errow}`);
     })
   }
 
   cancel(): void {
-    this.router.navigate(['admin/donor']);
+    this.router.navigate(['admin/item']);
   }
 
 }
