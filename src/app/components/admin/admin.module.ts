@@ -20,11 +20,16 @@ import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { RouterModule } from "@angular/router";
 import { DonorCrudComponent } from "src/app/views/donor-crud/donor-crud.component";
+import { EventCrudComponent } from "src/app/views/event-crud/event-crud.component";
 import { HomeComponent } from "src/app/views/home/home.component";
 import { DonorCreateComponent } from "../donor/donor-create/donor-create.component";
 import { DonorDeleteComponent } from "../donor/donor-delete/donor-delete.component";
 import { DonorReadComponent } from "../donor/donor-read/donor-read.component";
 import { DonorUpdateComponent } from "../donor/donor-update/donor-update.component";
+import { EventCreateComponent } from "../event/event-create/event-create.component";
+import { EventDeleteComponent } from "../event/event-delete/event-delete.component";
+import { EventReadComponent } from "../event/event-read/event-read.component";
+import { EventUpdateComponent } from "../event/event-update/event-update.component";
 import { FooterComponent } from "../template/footer/footer.component";
 import { HeaderComponent } from "../template/header/header.component";
 import { AdminRoutingModule } from "./admin-routing.module";
@@ -38,6 +43,11 @@ import { AdminComponent } from "./admin.component";
     DonorUpdateComponent,
     DonorDeleteComponent,
     DonorReadComponent,
+    EventCreateComponent,
+    EventCrudComponent,
+    EventUpdateComponent,
+    EventReadComponent,
+    EventDeleteComponent,
     HeaderComponent,
     HomeComponent,
     FooterComponent,

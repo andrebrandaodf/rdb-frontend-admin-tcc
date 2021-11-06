@@ -2,13 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { DonorService } from 'src/app/services/donor.service';
+import { EventService } from 'src/app/services/event.service';
 
 
 @Component({
-  selector: 'app-donor-read',
-  templateUrl: './donor-read.component.html',
-  styleUrls: ['./donor-read.component.scss'],
+  selector: 'app-event-read',
+  templateUrl: './event-read.component.html',
+  styleUrls: ['./event-read.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -18,7 +18,7 @@ import { DonorService } from 'src/app/services/donor.service';
   ],
 })
 
-export class DonorReadComponent implements OnInit {
+export class EventReadComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,12 +30,12 @@ export class DonorReadComponent implements OnInit {
 
   columnsToDisplay = [
     'name',
-    'surname',
+    'description',
     'address',
     'action',
   ];
 
-  constructor(private donorService: DonorService) {
+  constructor(private eventService: EventService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -58,7 +58,7 @@ export class DonorReadComponent implements OnInit {
 
   getAllPaginator() {
     this.isLoading = true;
-    this.donorService.getAll().subscribe((res: any) => {
+    this.eventService.getAll().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res || []);
       setTimeout(() => this.dataSource.paginator = this.paginator);
       this.isLoading = false;

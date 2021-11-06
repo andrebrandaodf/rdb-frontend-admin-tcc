@@ -1,25 +1,22 @@
 <div class="container-fluid">
   <div class="mat-elevation-z2">
-    <mat-card class="excluirDonor">
+    <mat-card class="excluirEvent">
       <mat-card-title>Excluir </mat-card-title>
       <form>
         <mat-form-field>
-          <input matInput placeholder="Nome" [value]="donor.name" name="name" disabled />
+          <input matInput placeholder="Nome" [value]="event.name" name="name" disabled />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Sobrenome" [value]="donor?.surname" name="surname" disabled />
+          <input matInput placeholder="Descrição" [value]="event?.description" name="description" disabled />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Telefone" [value]="donor?.phone" disabled>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Email" [value]="donor?.email" disabled>
+          <input matInput placeholder="Status" [value]="event?.status" disabled>
         </mat-form-field>
       </form>
     </mat-card>
   </div>
 
-  <button class="mb-2 btn btn-outline-danger" mat-raised-button (click)="deleteDonor()">
+  <button class="mb-2 btn btn-outline-danger" mat-raised-button (click)="deleteEvent()">
     Excluir
   </button>
 

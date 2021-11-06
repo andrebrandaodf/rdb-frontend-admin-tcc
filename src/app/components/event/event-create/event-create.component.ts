@@ -2,19 +2,23 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/services/address.service';
 import { Address } from 'src/app/models/address.model';
-import { Donor } from 'src/app/models/donor.model';
-import { DonorService } from 'src/app/services/donor.service';
+import { Item } from 'src/app/models/item.model';
+import { EventService } from 'src/app/services/event.service';
+import { Event } from 'src/app/models/event.model';
 
 @Component({
-  selector: 'app-donor-create',
-  templateUrl: './donor-create.component.html',
-  styleUrls: ['./donor-create.component.scss']
+  selector: 'app-event-create',
+  templateUrl: './event-create.component.html',
+  styleUrls: ['./event-create.component.scss']
 })
-export class DonorCreateComponent implements OnInit {
+export class EventCreateComponent implements OnInit {
   address!: Address;
-  donor: Donor = {
+  item!: Item;
+
+  event: Event = {
     name: '',
-    surname:'',
+    description:'',
+    image:'',
     address: {
       cep: '',
       logradouro: '',
@@ -23,11 +27,12 @@ export class DonorCreateComponent implements OnInit {
       uf: '',
       complemento: ''
     },
-    phone: '',
-    email: ''
+    status: false,
+    startDate: new Date,
+    endDate: new Date
   }
 
-  constructor(private donorService: DonorService, private addressService: AddressService, private router: Router) {
+  constructor(private eventService: EventService, private addressService: AddressService, private router: Router) {
 
   }
 
@@ -37,22 +42,22 @@ export class DonorCreateComponent implements OnInit {
   getCep(event: any) {
     let cep = (event.target as HTMLInputElement).value;
     let cepOnlyNumber = Number(cep.replace(/[^0-9]/g, ''));
-    this.donorService.getCep(cepOnlyNumber).subscribe((resp: any) => {
-      this.donor.address = resp;
+    this.eventService.getCep(cepOnlyNumber).subscribe((resp: any) => {
+      this.event.address = resp;
       console.log(resp);
     }
     );
   }
 
-  createDonor(): void {
-    this.donorService.create(this.donor).subscribe(() => {
+  createEvent(): void {
+    this.eventService.create(this.event).subscribe(() => {
       this.addressService.create(this.address)
-      this.donorService.showMessage('Doador cadastrado!')
-      this.router.navigate(['admin/donor'])
+      this.eventService.showMessage('Evento cadastrado!')
+      this.router.navigate(['admin/event'])
     })
   }
 
   cancel(): void {
-    this.router.navigate(['admin/donor'])
+    this.router.navigate(['admin/event'])
   }
 }

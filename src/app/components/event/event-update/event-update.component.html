@@ -1,43 +1,49 @@
 <div class="container-fluid">
   <div class="mat-elevation-z2">
-    <mat-card class="newDonor">
-      <mat-card-title>Alterar Cadastro</mat-card-title>
+    <mat-card class="newEvent">
+      <mat-card-title>Alterar Evento</mat-card-title>
       <form>
         <mat-form-field>
-          <input matInput placeholder="Nome" [value]="donor?.name" name="name">
+          <input matInput placeholder="Nome" [value]="event?.name" name="name">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Sobrenome" [value]="donor?.surname" name="surname">
+          <input matInput placeholder="Descrição" [value]="event?.description" name="description">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="donor.address.cep" name="cep">
+          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="event.address.cep" name="cep">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Logradouro" [value]="donor?.address?.logradouro" name="logradouro">
+          <input matInput placeholder="Logradouro" [value]="event?.address?.logradouro" name="logradouro">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Bairro" [value]="donor?.address?.bairro" name="bairro">
+          <input matInput placeholder="Bairro" [value]="event?.address?.bairro" name="bairro">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Cidade" [value]="donor?.address?.localidade" name="localidade">
+          <input matInput placeholder="Cidade" [value]="event?.address?.localidade" name="localidade">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Uf" [value]="donor?.address?.uf" name="uf">
+          <input matInput placeholder="Uf" [value]="event?.address?.uf" name="uf">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Complemento" [value]="donor?.address?.complemento" name="complemento">
+          <input matInput placeholder="Complemento" [value]="event?.address?.complemento" name="complemento">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Telefone" [value]="donor?.phone" name="phone">
+          <input matInput placeholder="Imagem" [value]="event?.image" name="image">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Email" [value]="donor?.email" name="email">
+          <input matInput placeholder="Status" [value]="event?.status" name="status">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Data ínicio" [value]="event?.startDate" name="startDate">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Data fim" [value]="event?.endDate" name="endtDate">
         </mat-form-field>
       </form>
     </mat-card>
   </div>
-  <button class="mb-2 btn" mat-raised-button (click)="updateDonor()">
+  <button class="mb-2 btn" mat-raised-button (click)="updateEvent()">
     Atualizar
   </button>
 

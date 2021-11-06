@@ -1,51 +1,55 @@
 <div class="container-fluid">
   <div class="mat-elevation-z2">
-    <mat-card class="novoDonor">
+    <mat-card class="novoEvent">
       <mat-card-title class="title-matCard">Novo Evento</mat-card-title>
       <form class="d-flex ng-untouched ng-pristine ng-valid">
         <mat-form-field>
-          <input matInput placeholder="Nome" [(ngModel)]="donor.name" name="name">
+          <input matInput placeholder="Nome" [(ngModel)]="event.name" name="name">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Sobrenome" [(ngModel)]="donor.surname" name="surname">
+          <input matInput placeholder="Descrição" [(ngModel)]="event.description" name="description">
         </mat-form-field>
 
         <mat-card-title class="title-matCard">Endereço</mat-card-title>
 
         <mat-form-field>
-          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="donor.address.cep" name="cep">
+          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="event.address.cep" name="cep">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Logradouro" [(ngModel)]="donor.address.logradouro" name="logradouro">
+          <input matInput placeholder="Logradouro" [(ngModel)]="event.address.logradouro" name="logradouro">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Bairro" [(ngModel)]="donor.address.bairro" name="bairro">
+          <input matInput placeholder="Bairro" [(ngModel)]="event.address.bairro" name="bairro">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Cidade" [(ngModel)]="donor.address.localidade" name="localidade">
+          <input matInput placeholder="Cidade" [(ngModel)]="event.address.localidade" name="localidade">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="UF" [(ngModel)]="donor.address.uf" name="uf">
+          <input matInput placeholder="UF" [(ngModel)]="event.address.uf" name="uf">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Complemento" [(ngModel)]="donor.address.complemento" name="complemento">
+          <input matInput placeholder="Complemento" [(ngModel)]="event.address.complemento" name="complemento">
         </mat-form-field>
 
-        <mat-card-title class="title-matCard">Contatos</mat-card-title>
+        <mat-card-title class="title-matCard">Datas do Evento</mat-card-title>
         <mat-form-field>
-          <input matInput placeholder="Telefone" [(ngModel)]="donor.phone" name="phone">
+          <input matInput placeholder="Data ínicio" [(ngModel)]="event.startDate" name="startDate">
 
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Email" [(ngModel)]="donor.email" name="email">
-
+          <input matInput placeholder="Data Fim" [(ngModel)]="event.endDate" name="endDate">
         </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Imagem do Evento" [(ngModel)]="event.image" name="image">
+        </mat-form-field>
+        
       </form>
     </mat-card>
   </div>
-  <button class="mb-2 btn" mat-raised-button (click)="createDonor()">
+  <button class="mb-2 btn" mat-raised-button (click)="createEvent()">
     Salvar
   </button>
 

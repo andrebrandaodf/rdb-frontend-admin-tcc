@@ -1,30 +1,30 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Donor } from 'src/app/models/donor.model';
-import { DonorService } from 'src/app/services/donor.service';
+import { Event } from 'src/app/models/event.model';
+import { EventService } from 'src/app/services/event.service';
 
 
 
 @Component({
-  selector: 'app-donor-delete',
-  templateUrl: './donor-delete.component.html',
-  styleUrls: ['./donor-delete.component.scss']
+  selector: 'app-event-delete',
+  templateUrl: './event-delete.component.html',
+  styleUrls: ['./event-delete.component.scss']
 })
-export class DonorDeleteComponent implements OnInit {
+export class EventDeleteComponent implements OnInit {
 
-  donor!: Donor;
+  event!: Event;
   private id!: number;
 
   constructor(
-    private donorService: DonorService,
+    private eventService: EventService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(getParam => {
-      this.donorService.readById(getParam.id).subscribe((donor: any) => {
-        this.donor = donor;
+      this.eventService.readById(getParam.id).subscribe((event: any) => {
+        this.event = event;
       });
       this.id = getParam.id;
     }, erro => {
@@ -32,17 +32,17 @@ export class DonorDeleteComponent implements OnInit {
     });
   }
 
-  deleteDonor(): void {
-    this.donorService.delete(this.id).subscribe(() => {
-      this.donorService.showMessage('Doador deletado com sucesso!');
-      this.router.navigate(['admin/donor']);
+  deleteEvent(): void {
+    this.eventService.delete(this.id).subscribe(() => {
+      this.eventService.showMessage('Evento deletado com sucesso!');
+      this.router.navigate(['admin/event']);
     }, errow => {
-      this.donorService.showMessage(`Erro na solicitação: ${errow}`);
+      this.eventService.showMessage(`Erro na solicitação: ${errow}`);
     })
   }
 
   cancel(): void {
-    this.router.navigate(['admin/donor']);
+    this.router.navigate(['admin/event']);
   }
 
 }

@@ -19,7 +19,7 @@ export class EventCrudComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  navigateToDonorCreate(): void {
+  navigateToEventCreate(): void {
     this.router.navigate(['admin/event/create']);
   }
 }
