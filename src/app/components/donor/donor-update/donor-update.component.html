@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="mat-elevation-z2">
+    <mat-card class="newDonor">
+      <mat-card-title>Alterar Cadastro</mat-card-title>
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="Nome" [value]="donor?.name" name="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Sobrenome" [value]="donor?.surname" name="surname">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="donor.address.cep" name="cep">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Logradouro" [value]="donor?.address?.logradouro" name="logradouro">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Bairro" [value]="donor?.address?.bairro" name="bairro">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cidade" [value]="donor?.address?.localidade" name="localidade">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Uf" [value]="donor?.address?.uf" name="uf">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Complemento" [value]="donor?.address?.complemento" name="complemento">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Telefone" [value]="donor?.phone" name="phone">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" [value]="donor?.email" name="email">
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+  <button class="mb-2 btn" mat-raised-button (click)="updateDonor()">
+    Atualizar
+  </button>
+
+  <button class="mb-2 btn " mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</div>
