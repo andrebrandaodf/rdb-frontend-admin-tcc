@@ -5,8 +5,8 @@ import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-item-create',
-  templateUrl: './donor-create.component.html',
-  styleUrls: ['./donor-create.component.scss']
+  templateUrl: './item-create.component.html',
+  styleUrls: ['./item-create.component.scss']
 })
 export class ItemCreateComponent implements OnInit {
 

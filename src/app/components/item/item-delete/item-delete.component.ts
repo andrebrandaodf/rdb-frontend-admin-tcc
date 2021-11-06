@@ -8,7 +8,7 @@ import { ItemService } from 'src/app/services/item.service';
   templateUrl: './item-delete.component.html',
   styleUrls: ['./item-delete.component.scss']
 })
-export class itemDeleteComponent implements OnInit {
+export class ItemDeleteComponent implements OnInit {
 
   item!: Item;
   private id!: number;
@@ -30,7 +30,7 @@ export class itemDeleteComponent implements OnInit {
     });
   }
 
-  deleteitem(): void {
+  deleteItem(): void {
     this.itemService.delete(this.id).subscribe(() => {
       this.itemService.showMessage('Item deletado com sucesso!');
       this.router.navigate(['admin/item']);
