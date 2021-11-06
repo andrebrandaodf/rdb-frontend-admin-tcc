@@ -19,7 +19,7 @@ export class ItemCrudComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  navigateToDonorCreate(): void {
+  navigateToItemCreate(): void {
     this.router.navigate(['admin/item/create']);
   }
 }
