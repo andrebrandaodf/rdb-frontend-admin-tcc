@@ -48,11 +48,11 @@ export class DonorCreateComponent implements OnInit {
     this.donorService.create(this.donor).subscribe(() => {
       this.addressService.create(this.address)
       this.donorService.showMessage('Doador cadastrado!')
-      this.router.navigate(['admin/doador'])
+      this.router.navigate(['admin/donor'])
     })
   }
 
   cancel(): void {
-    this.router.navigate(['admin/doador'])
+    this.router.navigate(['admin/donor'])
   }
 }
