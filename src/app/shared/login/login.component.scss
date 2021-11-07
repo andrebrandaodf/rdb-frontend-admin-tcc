@@ -32,3 +32,8 @@ mat-card-actions{
   padding-top: 0.5rem;
   
 }
+
+.mat-card-header {
+  display: flex;
+  flex-direction: column-reverse;
+}
