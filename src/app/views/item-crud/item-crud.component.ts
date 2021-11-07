@@ -11,7 +11,7 @@ import { HeaderService } from 'src/app/components/template/header/header.service
 export class ItemCrudComponent implements OnInit {
   constructor(private router: Router, private headerService: HeaderService) {
     headerService.headerData = {
-      title: 'Cadastro de Itens',
+      title: 'Cadastro de Item',
       icon: 'storefront',
       routeUrl: '/item',
     };

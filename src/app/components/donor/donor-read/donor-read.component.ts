@@ -31,6 +31,7 @@ export class DonorReadComponent implements OnInit {
   columnsToDisplay = [
     'name',
     'surname',
+    'email',
     'address',
     'action',
   ];
