@@ -10,6 +10,9 @@
           <input matInput placeholder="Descrição" [value]="event?.description" name="description">
         </mat-form-field>
         <mat-form-field>
+          <input matInput placeholder="Imagem" [value]="event?.photograph" name="photograph">
+        </mat-form-field>
+        <mat-form-field>
           <input matInput placeholder="Cep" (change)="getCep($event)" [(ngModel)]="event.address.cep" name="cep">
         </mat-form-field>
 
@@ -27,9 +30,6 @@
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Complemento" [value]="event?.address?.complemento" name="complemento">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Imagem" [value]="event?.image" name="image">
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Status" [value]="event?.status" name="status">

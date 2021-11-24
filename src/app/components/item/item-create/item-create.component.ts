@@ -12,7 +12,8 @@ export class ItemCreateComponent implements OnInit {
 
   item: Item = {
     name: '',
-    category:''
+    category:'', 
+    description:'',
   }
 
   constructor(private itemService: ItemService, private router: Router) {

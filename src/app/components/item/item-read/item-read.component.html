@@ -16,7 +16,7 @@
 
 
         <!-- Category Column -->
-        <ng-container matColumnDef="surname">
+        <ng-container matColumnDef="category">
           <th mat-header-cell *matHeaderCellDef>Categoria</th>
           <td mat-cell *matCellDef="let element">{{ element.category }}</td>
         </ng-container>
@@ -39,7 +39,7 @@
             <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
               <!-- Presentation Column -->
               <div class="col-12">
-                <p class="text-justify">cep: {{ element.category }}</p>
+                <p class="text-justify">Descrição: {{ element.description }}</p>
               </div>
             </div>
           </td>

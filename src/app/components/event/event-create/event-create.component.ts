@@ -18,7 +18,7 @@ export class EventCreateComponent implements OnInit {
   event: Event = {
     name: '',
     description:'',
-    image:'',
+    photograph:'',
     address: {
       cep: '',
       logradouro: '',

@@ -5,7 +5,7 @@ export interface Event {
   id?: number;
   name: string;
   description: string;
-  image: string;
+  photograph: string;
   address: Address;
   status: boolean;
   startDate: Date;

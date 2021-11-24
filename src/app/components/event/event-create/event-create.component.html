@@ -11,6 +11,10 @@
           <input matInput placeholder="Descrição" [(ngModel)]="event.description" name="description">
         </mat-form-field>
 
+        <mat-form-field>
+          <input matInput placeholder="Imagem do Evento" [(ngModel)]="event.photograph" name="photograph">
+        </mat-form-field>
+
         <mat-card-title class="title-matCard">Endereço</mat-card-title>
 
         <mat-form-field>
@@ -32,7 +36,7 @@
         <mat-form-field>
           <input matInput placeholder="Complemento" [(ngModel)]="event.address.complemento" name="complemento">
         </mat-form-field>
-
+        
         <mat-card-title class="title-matCard">Datas do Evento</mat-card-title>
         <mat-form-field>
           <input matInput placeholder="Data ínicio" [(ngModel)]="event.startDate" name="startDate">
@@ -42,10 +46,7 @@
           <input matInput placeholder="Data Fim" [(ngModel)]="event.endDate" name="endDate">
         </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Imagem do Evento" [(ngModel)]="event.image" name="image">
-        </mat-form-field>
-        
+ 
       </form>
     </mat-card>
   </div>
